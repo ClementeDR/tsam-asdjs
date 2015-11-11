@@ -290,7 +290,7 @@ function powI(a, b){
 	} else {
 		tota = 0;
 		for(i = 0; i < b; i++){
-			tota = tota + s(a, b);
+			tota = s(a, tota);
 		}
 		return tota;
 	}
