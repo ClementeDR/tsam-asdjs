@@ -142,7 +142,7 @@ function sumIntervalR(a, b) {
 
 }
 
-function sumIntervallR(a, b) {
+function sumIntervalR(a, b) {
     if (a < b){
         return sumIntervalR(a, b);
     } else {
