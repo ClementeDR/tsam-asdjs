@@ -142,7 +142,7 @@ function sumIntervalR(a, b) {
 
 }
 
-function sumIntervalR(a, b) {
+function sumIntervalRW(a, b) {
     if (a < b){
         return sumIntervalR(a, b);
     } else {
@@ -158,7 +158,7 @@ function ex_4_I(x, y) {
 }
 //RICORSIVA
 function ex_4_R(x, y) {
-    return sumIntervalR(x, y);
+    return sumIntervalRW(x, y);
 }
 
 /*Esercizio 5
