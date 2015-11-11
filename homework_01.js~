@@ -288,7 +288,7 @@ function powI(a, b){
 	if(b === 0){
 	return 1;
 	} else {
-		tota = 0;
+		tota = 1;
 		for(i = 0; i < b; i++){
 			tota = s(a, tota);
 		}
