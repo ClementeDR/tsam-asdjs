@@ -321,26 +321,50 @@ function ex_7_R(a, b){
 Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli
 
 oggetti in un array bidimensionale n x n.*/
-// ITERATIVA
-function arrayMultidim(vett){
-    n = Math.sqrt(vett.length);
-    v1 = [n];
-	v2 = [n];
-    c = 0;
-    for(i = 0; i < n; i++){
-        for(j = 0; j < n; j++){
-            v2[j] = vett[c];
-			c++;
-            
-        }
-		v1[i] = v2;
-    }
+// ITERATIVAfunction help(myarray){
+	var n = Math.sqrt(myarray.length);
+	var matrix = [];
 	
-    return v1;
+	for(var i = 0; i < n; i++){
+		matrix.push([]);
+		matrix[i].push(new Array(n));
+		
+		for(var j = 0; j < n; j++){
+			matrix[i][j] = 0;
+			
+		}
+	}
+	return matrix;
+	
 }
+
+function loadArray(vect, vett){
+	var c = 0;
+	n = Math.sqrt(vett.length);
+	for(var i = 0; i < n; i++){
+		for(var j = 0; j < n; j++){
+			
+			vect[i][j] = vett[c];
+			c++;
+			
+		}
+	}
+	
+	return vect;
+	
+}
+
+
+// ITERATIVA
+
 //per il prof
 function ex_8_I(vett){
-	return arrayMultidim(vett);
+	 
+	 var vet = help(vett);
+	 
+	
+	return loadArray(vet, vett);
+	 
 }
 
 /*Esercizio 9
