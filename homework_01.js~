@@ -367,6 +367,35 @@ function ex_8_I(vett){
 	 
 }
 
+// ricorsiva
+
+function magic(myarray, matrix) {
+    matrix.unshift(myarray);
+    return matrix;
+}
+
+
+function bidimensionaleRInternal(myarray, n) {
+    if (myarray.length == n) {
+        return [myarray];
+    } else {
+        return magic(myarray.slice(0, n), 
+                     bidimensionaleRInternal(myarray.slice(n), n));
+    }
+}
+
+function bidimensionaleR(myarray) {
+    return bidimensionaleRInternal(myarray, Math.sqrt(myarray.length));
+}
+
+
+
+// Ricorsiva
+function ex_8_R(vett){
+	return bidimensionaleR(vett);
+}
+
+
 /*Esercizio 9
 
 Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli
