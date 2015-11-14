@@ -165,3 +165,9 @@ function filtro(myarray){
 	return disp.concat(pari);
 	
 }
+
+
+function ex_11_F(myarray){
+	return filtro(myarray);
+
+}
