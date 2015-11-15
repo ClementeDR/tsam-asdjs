@@ -534,4 +534,22 @@ function ex_11_I(vett){
 	return disParIterativ(vett);
 }
 
+function order_r(myarray, q, i){
+	
+	if(myarray.length > 0 && q > i){
+		if(myarray[i]%2 == 0){
+			myarray.push(myarray[i]);
+			myarray.splice(i,1);
+			q--;
+		}
+		return order_r(myarray, q, ++i);
+	}
+	return myarray;
+	
+}
 
+function ex_11_R(myarray){
+	
+	return order_r(myarray, myarray.length, 0);
+	
+}
