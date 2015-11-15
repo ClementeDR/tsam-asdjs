@@ -428,16 +428,36 @@ function revR(vett){
 		return vett.push(revR(vett));
 	}
 }*/
-//per il prof
+// RICORSIVA
+
+function scambia(a, i, j){
+	var tmp = a[i];
+	a[i] = a[j];
+	a[j] = tmp;
+}
+
+
+function inverti_r(myarray, i){
+	var z = myarray.length - 1 - i;
+	if(i <= z ){
+		
+		scambia(myarray, i, z);
+		return inverti_r(myarray, i+1);
+		}
+		return myarray;
+	
+}
+
 // ITERATIVA
 function ex_9_I(vett){
 	return revI(vett);
 }
 // Ricorsiva
-/*
-function ex_9_R(vett){
-	return revR(vett);
-}*/
+
+function ex_9_R(myarray){
+	return inverti_r(myarray, 0);
+	
+}
 /*Esercizio 10
 
 Dati due interi a, n maggiori di 0, scrivere un algoritmo che crea un lista di n elementi
