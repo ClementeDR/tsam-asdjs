@@ -41,14 +41,15 @@ function f2(myarray){
 
 function range(n){
 	a = [];
-	for(var i = 0; i < n ;i++){
+	for(var i = 0; i < n ; ++i){
 		a[i] = i;
 	}
+	return a;
 	
 }
 
 function ex_2_F(n){
-	 return range(n).map(x => 2*x + 1).reduce((acc, x) => acc,x);
+	 return range(n).map(x => 2*x + 1).reduce((acc, x) => acc + x);
 	 /*
 	 x => 2*x + 1 significa 
 	 function(x){ return 2 * x + 1;}
@@ -56,7 +57,6 @@ function ex_2_F(n){
 	*/
 	
 }
-
 
 
 
@@ -112,10 +112,20 @@ function ex_10_F(a, b){
 //esercizio 5 moltiplicazione
 function mult(a, b){
 	var x = [];
+	if( a >= 0){
+		
+	
+	if( b == 0)
+		return 1;
+	else{
 	x = replicate(a, b);
 	var tot = 0;
 	tot = sum(x);
 	return tot;
+	}
+	} else {
+		return 0;
+	}
 	
 }
 
