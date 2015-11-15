@@ -48,7 +48,7 @@ function range(n){
 }
 
 function ex_2_F(n){
-	 return range(n).map(x => 2*x + 1).reduce((acc, x) => acc,x);
+	 return range[n].map(x => 2*x + 1).reduce((acc, x) => acc,x);
 	 /*
 	 x => 2*x + 1 significa 
 	 function(x){ return 2 * x + 1;}
