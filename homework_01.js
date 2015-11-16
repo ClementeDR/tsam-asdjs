@@ -91,7 +91,7 @@ function mediaRic(myarray) {
 }
 
 function ricMediaTot(myarray) {
-    return mediaRic(myarray) / 10;
+    return mediaRic(myarray) / myarray.length;
 }
 
 // per il prof
@@ -321,7 +321,8 @@ function ex_7_R(a, b){
 Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli
 
 oggetti in un array bidimensionale n x n.*/
-// ITERATIVAfunction help(myarray){
+// ITERATIVA
+function help(myarray){
 	var n = Math.sqrt(myarray.length);
 	var matrix = [];
 	

@@ -113,16 +113,14 @@ function ex_10_F(a, b){
 function mult(a, b){
 	var x = [];
 	if( a >= 0){
-		
-	
-	if( b == 0)
-		return 1;
-	else{
-	x = replicate(a, b);
-	var tot = 0;
-	tot = sum(x);
-	return tot;
-	}
+		if(a == 0)
+			return 0;
+		else {
+			x = replicate(a, b);
+			var tot = 0;
+			tot = sum(x);
+			return tot;
+		}
 	} else {
 		return 0;
 	}
