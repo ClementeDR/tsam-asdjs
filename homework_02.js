@@ -38,7 +38,7 @@ function f2(myarray){
 	
 	
 }
-
+// il quattro fai un array e poi reduce
 function range(n){
 	a = [];
 	for(var i = 0; i < n ; ++i){
@@ -60,13 +60,16 @@ function ex_2_F(n){
 
 
 
+
 //ex 3: media
+function media(myarray){
+	var tot;
+	
+	return tot = sum(myarray) / myarray.length;
+}
+
 function ex_3_F(myarray){
-	var tot = 0;
-	
-	tot = sum(myarray);
-	
-	return tot = tot / myarray.length;
+	return media(myarray);
 }
 
 // esercizio 4
@@ -111,11 +114,14 @@ function ex_10_F(a, b){
 
 //esercizio 5 moltiplicazione
 function mult(a, b){
-	var x = [];
+	
 	if( a >= 0){
-		if(a == 0)
+		
+	
+		if( b == 0)
 			return 0;
-		else {
+		else{
+			var x = [];
 			x = replicate(a, b);
 			var tot = 0;
 			tot = sum(x);
@@ -134,7 +140,7 @@ function ex_5_F(a, b){
 
 //esercizio 7 potenza
 function pow(a, b){
-	var x = [];
+	
 	
 	if(b == 0)
 		return 1;
@@ -142,6 +148,7 @@ function pow(a, b){
 		if(a == 0)
 			return 0;
 		else {
+			var x = [];
 			x = replicate(a, b-1);
 			x.forEach(x => a = mult(x, a));
 			
@@ -159,12 +166,13 @@ function ex_7_F(a, b){
 //esercizio 11 filtro
 function filtro(myarray){
 	var pari = [];
-	var disp = [];
+	
 	pari = myarray.filter(function fil(myarray){
 		if(myarray%2 == 0)
 			return myarray;
 		
 	});
+	var disp = [];
 	disp = myarray.filter(function fil(myarray){
 		if(myarray%2 != 0)
 			return myarray;
@@ -177,5 +185,5 @@ function filtro(myarray){
 
 function ex_11_F(myarray){
 	return filtro(myarray);
-
+	
 }
