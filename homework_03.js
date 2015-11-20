@@ -1,4 +1,4 @@
-Array.prototype.average = function (){
+Array.prototype.ex_3 = function (){
 	
 	var tot;	
 	return tot = this.sum(this) / this.length;
@@ -12,7 +12,7 @@ Array.prototype.sum = function (){
 	return tot;
 }
 
-Array.prototype.filtro = function(){
+Array.prototype.ex_11 = function(){
 	var pari = [];
 	
 	pari = this.filter(function (x){
@@ -30,7 +30,7 @@ Array.prototype.filtro = function(){
 	
 }
 
-Array.prototype.sumWhileNeg = function (){
+Array.prototype.ex_1 = function (){
 		var tot = 0;
 		this.every( x => {
 		if(x > 0){
