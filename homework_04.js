@@ -7,7 +7,7 @@ Stack.prototype.push = function (e){ return this.myarray.push(e);}
 Stack.prototype.pop = function (){return this.myarray.pop();}
 Stack.prototype.peek = function (){return this.myarray(this.myarray.length - 1);}
 Stack.prototype.isEmpty = function (){return this.myarray.length == 0;}
-Stack.prototype.binToDec = function (n){
+Stack.prototype.decToBin = function (n){
 	
 	
 	
