@@ -39,3 +39,30 @@ function callback(x){
 	
 }
 
+
+/*
+
+popall = function(callback){
+	while(!this.isempty()){
+		callback(this.pop())
+	}
+
+}
+
+nella dectobin
+popall(function (e) binattString += e.tostring(););
+*/
+
+/*
+
+function rec(remStack, n){
+	if(n == 0){
+		return remStack;
+	}else{
+		remStack.push(math.floor(n%2));
+		return rec(remStack, math.floor(n/2));
+	}
+
+}
+
+*/
