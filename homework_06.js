@@ -10,11 +10,11 @@ function CircularQueue(n){
 }
 
 CircularQueue.prototype.enqueue = function(e){
-	if(this.dim == this.n){
+	if(this.dim == this.cap){
 		return;
 	}
 	this.myarray[this.coda] = e;
-	this.coda = (this.coda + 1) % this.n;
+	this.coda = (this.coda + 1) % this.cap;
 	this.dim++;
 	
 }
@@ -24,7 +24,7 @@ CircularQueue.prototype.dequeue = function(){
 	}
 	var temp = this.myarray[this.testa];
 	this.myarray[testa] = null;
-	this.testa = (this.testa + 1) % this.n;
+	this.testa = (this.testa + 1) % this.cap;
 	this.dim--;
 	return temp;
 }
