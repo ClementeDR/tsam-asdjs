@@ -11,22 +11,23 @@ function CircularQueue(n){
 
 CircularQueue.prototype.enqueue = function(e){
 	if(this.dim == this.cap){
-		return;
+		return false;
+	} else {
+		this.myarray[this.coda] = e;
+		this.coda = (this.coda + 1) % this.cap;
+		this.dim++;
 	}
-	this.myarray[this.coda] = e;
-	this.coda = (this.coda + 1) % this.cap;
-	this.dim++;
-	
 }
 CircularQueue.prototype.dequeue = function(){
 	if(this.isEmpty()){
 		return null;
+	} else {
+		var temp = this.myarray[this.testa];
+		this.myarray[testa] = null;
+		this.testa = (this.testa + 1) % this.cap;
+		this.dim--;
+		return temp;
 	}
-	var temp = this.myarray[this.testa];
-	this.myarray[testa] = null;
-	this.testa = (this.testa + 1) % this.cap;
-	this.dim--;
-	return temp;
 }
 CircularQueue.prototype.front = function(){
 	return this.myarray[this.testa];
