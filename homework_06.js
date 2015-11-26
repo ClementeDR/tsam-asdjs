@@ -1,5 +1,5 @@
 function CircularQueue(n){
-	this.myarray = [n];
+	this.myarray = [];
 	this.coda = 0;
 	this.testa = 0;
 	this.cap = n;
