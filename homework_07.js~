@@ -4,7 +4,7 @@ function PriorityQueue(){
 	
 }
 
-function QueueItem(it, p) {
+function PriorityItem(it, p) {
     this.item = it;
     this.priorit = p;
 	
@@ -14,7 +14,7 @@ function QueueItem(it, p) {
 
 PriorityQueue.prototype.enqueue = function (it, prio){
 	
-	var elemento = new QueueItem(it, prio);
+	var elemento = new PriorityItem(it, prio);
 	
 	if(this.isEmpty()){
 		this.myarray.push(elemento);
