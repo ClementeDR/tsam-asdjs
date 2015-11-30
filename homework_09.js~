@@ -95,15 +95,15 @@ LinkedList.prototype.addElement = function (currentElement, inde, data) {
                 node.succ = currentElement.index;
                 node.prec = currentElement.prec;
                 currentElement.prec = node.index;
+                flag = true;
             }else{
                 this.addElement(currentElement.succ, inde, data)
             }
        }
+    }
     this.dim++;
     return node;
 }
-   
-
 LinkedList.prototype.add = function (inde, data) {
     this.addElement(this.testa, inde, data)
 }
