@@ -67,6 +67,60 @@ function ex_3(myarray){
     return multOddEven(myarray);//o(n)
 }
 
+// esercizio 4
+function LinkedList() {
+
+    this.testa = null;
+    this.dim = 0;
+}
+
+LinkedList.prototype.elementList = function (inde, data) {
+    var node = {
+        item: data,
+        index: inde,
+        succ: null,
+        prec: null
+    };
+    return node;
+}
+
+LinkedList.prototype.addElement = function (currentElement, inde, data) {
+    var node = this.elementList(inde, data);
+
+
+    if (this.dim === 0) {
+        this.testa = node;
+    } else {
+            if(node.index < currentElement.index){
+                node.succ = currentElement.index;
+                node.prec = currentElement.prec;
+                currentElement.prec = node.index;
+                flag = true;
+            }else{
+                this.addElement(currentElement.succ, inde, data)
+            }
+       }
+    }
+    this.dim++;
+    return node;
+}
+LinkedList.prototype.add = function (inde, data) {
+    this.addElement(this.testa, inde, data)
+}
+LinkedList.prototype.getElement = function(currentNode, i){
+    if(currentNode == null){
+        return false;
+    }
+    if(currentNode.index == i){
+        return currentNode;
+    } else {
+        this.getElement(currentNode.index, i);
+    }
+}
+LinkedList.prototype.get = function(i){
+    return this.getElement(this.testa, i);
+}
+
 
 // esercizio 5
 
