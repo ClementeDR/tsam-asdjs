@@ -1,3 +1,4 @@
+// esercizio 1a
 function T(myarray){
     if(myarray.length == 0){
         return 10;
@@ -5,13 +6,12 @@ function T(myarray){
         return 5 * myarray[0] + T(myarray.slice(1));
     }
 }
-
 function ex_1a(myarray){
     return T(myarray);
     //o(n)
 }
 
-
+// esercizio 1b
 function oddElement(myarray){
     if(myarray.length == 0){
         return 0;
@@ -23,12 +23,12 @@ function oddElement(myarray){
         }
     }
 }
-
 function ex_1b(myarray){
     return oddElement(myarray);
     //o(n)
 }
 
+// esercizio 2
 function oddSquare(myarray){
    var c = myarray.filter(function(myarray){
         if(myarray%2 == 0)
@@ -36,13 +36,11 @@ function oddSquare(myarray){
         });
     return c.map(c => c * c).reduce((c,d) => c+d);
 }
-
 function ex_2(myarray){
     return oddSquare(myarray); //o(n)
 }
 
-
-
+// esercizio 3
 function multOddEven(myarray){
     function Stack(){
         this.arr = [];
@@ -55,25 +53,86 @@ function multOddEven(myarray){
 
     var evenStack = new Stack();
     var oddStack = new Stack();
-    for(var i = 0; i < myarray.length; i++){
-        if(myarray[i] % 2 == 0){
-            oddStack.push(myarray[i]);
-        }else{
-            evenStack.push(myarray[i]);
-        }
-    }
+    myarray.forEach(myarray => {if(myarray % 2 == 0){ oddStack.push(myarray)} else {evenStack.push(myarray)}});
     var result = new Stack();
     while(evenStack.arr.length != 0 && oddStack.arr.length != 0){
         result.push(evenStack.pop() * oddStack.pop());
     }
-    var tot = 0;
-    while(result.size() != 0){
-        tot += result.pop();
+    while(result.size() != 1){
+        result.push(result.pop() + result.pop());
     }
-    return tot;
-
+    return result.pop();
+}
+function ex_3(myarray){
+    return multOddEven(myarray);//o(n)
 }
 
-function ex_3(myarray){
-    return multOddEven(myarray);
+
+// esercizio 5
+
+function Node(it, lt, rt){
+    this.items = it;
+    this.left = lt;
+    this.right = rt;
+}
+function BST(){
+    this.root = null;
+}
+
+BST.prototype.addNode = function(currentNode, e){
+    if(e < currentNode.items){
+        if(currentNode.left == null){
+            currentNode.left = new Node(e, null, null);
+        }else{
+            this.addNode(currentNode.left, e);
+        }
+    }else{
+        if(currentNode.right == null){
+            currentNode.right = new Node(e, null, null);
+        }else{
+            this.addNode(currentNode.right, e);
+        }
+    }
+}
+
+
+BST.prototype.add = function(e){
+    if(this.root == null){
+        this.root = new Node(e, null, null);
+    }else{
+        this.addNode(this.root, e);
+    }
+}
+
+
+BST.prototype.existNode = function(currentNode, e){
+    if(currentNode == null){
+        return false;
+    }
+    if(currentNode.items == e){
+        var x = currentNode.left.items;
+        var y = currentNode.right.items;
+        return nodo = new Node(currentNode.items, x, y);
+    } else {
+        if(e > currentNode.items){
+            return this.existNode(currentNode.right, e);
+        } else {
+            return this.existNode(currentNode.left, e);
+        }
+    }
+}
+BST.prototype.existTree = function (){
+    if(this.root == null){
+        return false;
+    }else{
+        return true;
+    }
+
+}
+BST.prototype.searchNode = function (e) {
+    if(this.existTree()){
+        return this.existNode(this.root, e);
+    }else{
+        return null;
+    }
 }
