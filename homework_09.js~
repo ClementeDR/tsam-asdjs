@@ -164,7 +164,7 @@ BST.prototype.add = function(e){
 
 BST.prototype.existNode = function(currentNode, e){
     if(currentNode == null){
-        return null;
+        return false;
     }
     if(currentNode.items == e){
        return currentNode;
