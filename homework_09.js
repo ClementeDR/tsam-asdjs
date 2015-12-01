@@ -167,9 +167,7 @@ BST.prototype.existNode = function(currentNode, e){
         return false;
     }
     if(currentNode.items == e){
-        var x = currentNode.left.items;
-        var y = currentNode.right.items;
-        return nodo = new Node(currentNode.items, x, y);
+       return currentNode;
     } else {
         if(e > currentNode.items){
             return this.existNode(currentNode.right, e);
