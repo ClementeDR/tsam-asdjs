@@ -67,63 +67,60 @@ function ex_3(myarray){
     return multOddEven(myarray);//o(n)
 }
 
-// esercizio 4 linked list
-function NodeL(it, succ, prec){
-    this.item = it;
-    this.next = succ;
-    this.prev = prec;
-};
+// esercizio 4
 function LinkedList() {
 
-    this.first = null;
-    this.last = null;
-
-
-}
-LinkedList.prototype.getNode = function(index){
-    function nodeR(node, i){
-        if(index == i || node == null)
-            return node;
-        else
-            return nodeR(node.next, i + 1);
-    }
-    return nodeR(this.first, 0);
-}
-LinkedList.prototype.get = function(index){
-    var node = this.getNode(index);
-    if(node == null){
-        return null;
-    }else{
-        return node.item;
-    }
+    this.testa = null;
+    this.dim = 0;
 }
 
-LinkedList.prototype.add = function(index, e){
-    var node = this.getNode(index);
-    if(this.first == null){
-        var newNode = new NodeL(e, null , null);
-        this.first = newNode;
-        this.last = newNode;
-        return;
-    }
-    if(node == null){
-        var newNode = new NodeL(e, this.last, null);
-        this.last.next = newNode;
-        this.last = newNode;
-    }else {
+LinkedList.prototype.elementList = function (inde, data) {
+    var node = {
+        item: data,
+        index: inde,
+        succ: null,
+        prec: null
+    };
+    return node;
+}
 
-        if (index == 0) {
-            var newNode = new NodeL(e, null, node);
-            node.prev = newNode;
-            this.first = newNode;
-        }
-        if (index != 0) {
-            var newNode = new NodeL(e, node.prev, node);
-            node.prev.next = newNode;
-            node.prev = newNode;
-        }
+LinkedList.prototype.addElement = function (currentElement, inde, data) {
+    var node = this.elementList(inde, data);
+
+
+    if (this.dim === 0) {
+        this.testa = node;
+    } else {
+            if(node.index < currentElement.index){
+                node.succ = currentElement.index;
+                node.prec = currentElement.prec;
+                currentElement.prec = node.index;
+            }else{
+                this.addElement(currentElement.succ, inde, data)
+            }
+       }
+    this.dim++;
+    return node;
+}
+   
+
+LinkedList.prototype.add = function (inde, data) {
+    this.addElement(this.testa, inde, data)
+}
+LinkedList.prototype.getElement = function(currentNode, i){
+    if(currentNode == null){
+        return false;
+    }
+    if(currentNode.index == i){
+        return currentNode;
+    } else {
+        this.getElement(currentNode.index, i);
     }
 }
+LinkedList.prototype.get = function(i){
+    return this.getElement(this.testa, i);
+}
+
 
 // esercizio 5
 
